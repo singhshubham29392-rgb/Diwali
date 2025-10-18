@@ -1,42 +1,26 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Happy Diwali </title>
-  <link rel="stylesheet" href="style.css" />
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Happy Diwali 🎆</title>
+<link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div class="light-string">
-    <div class="light"></div><div class="light"></div><div class="light"></div><div class="light"></div><div class="light"></div><div class="light"></div><div class="light"></div><div class="light"></div>
-  </div>
-
   <div class="wrap">
     <div class="card">
-      <h1>🎇 Happy Diwali 🎆</h1>
-      <p class="lead">Get ready to light up the night sky! The festival of lights begins soon...</p>
-      <div id="countdown">Loading countdown...</div>
-
-      <div class="canvas-wrap">
-        <canvas id="fireworksCanvas"></canvas>
-        <div id="touchHint" class="touch-hint">Touch here to launch fireworks</div>
+      <h1>🎇Happy Diwali 🎆</h1>
+      <p>Get ready for the grand celebration!</p>
+      <div id="countdown">Loading...</div>
+      <canvas id="fireworksCanvas"></canvas>
+      <div style="margin-top:15px;">
+        <button class="btn" id="launchBurst">Launch Fireworks</button>
+        <button class="btn" id="toggleMusic">Play Music</button>
       </div>
-
-      <div class="controls">
-        <button class="btn" id="launchBurst">Launch Burst</button>
-        <button class="btn" id="autoToggle">Auto Fireworks: Off</button>
-        <button class="btn" id="changePalette">Change Colors</button>
-      </div>
-      <button class="share-btn" id="shareBtn">✨ Share the Diwali Joy ✨</button>
     </div>
   </div>
-
-  <div class="diya-container">
-    <div class="diya"><div class="flame"></div></div>
-    <div class="diya"><div class="flame"></div></div>
-    <div class="diya"><div class="flame"></div></div>
-    <div class="diya"><div class="flame"></div></div>
-  </div>
+  <div id="celebrationBanner">🎆 Happy Diwali! 🪔</div>
 <script src="script.js"></script>
 </body>
 </html>
+
