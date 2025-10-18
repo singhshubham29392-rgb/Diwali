@@ -11,7 +11,7 @@ const palette = ['#ffcc33','#ff3366','#33ff99','#66ccff','#ff9933'];
 /* --------- Sounds & Music (safe play) --------- */
 const crackUrl = 'crackers.mp3';
 const boomUrl = 'crackers.mp3';
-const musicUrl = 'Diwali.mp3';
+const musicUrl = 'song.mp3';
 
 function makeAudio(url, volume=0.4) {
   const a = new Audio(url);
@@ -209,6 +209,7 @@ window.addEventListener("beforeunload", () => {
   if (celebrationFireworkInterval) clearInterval(celebrationFireworkInterval);
   if (floatingEmojiInterval) clearInterval(floatingEmojiInterval);
 });
+
 
 
 
