@@ -1,41 +1,60 @@
-    :root {
-      --bg: radial-gradient(circle at 20% 20%, #1a1b2f, #0a0a14);
-      --accent: #ffcc33;
-      --lamp: #ffcf40;
-      --flame: #ff6600;
-      --font-sans: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
-    }
-    html, body {
-      height: 100%; margin: 0; background: var(--bg); color: #fff; font-family: var(--font-sans); overflow-x: hidden; position: relative;
-    }
-    .wrap { min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 32px; text-align: center; }
-    .card { background: rgba(255,255,255,0.07); backdrop-filter: blur(10px); padding: 32px; border-radius: 18px; box-shadow: 0 10px 30px rgba(0,0,0,0.6); max-width: 980px; width: 100%; z-index: 2; position: relative; }
+:root {
+  --bg: radial-gradient(circle at 20% 20%, #1a1b2f, #0a0a14);
+  --accent: #ffcc33;
+  --lamp: #ffcf40;
+  --flame: #ff6600;
+}
+body {
+  margin: 0; font-family: system-ui, sans-serif;
+  background: var(--bg); color: #fff; overflow-x: hidden; position: relative;
+  transition: background 2s ease;
+}
+.wrap {
+  min-height: 100vh; display: flex; flex-direction: column;
+  align-items: center; justify-content: center; text-align: center;
+  padding: 20px;
+}
+.card {
+  background: rgba(255,255,255,0.07);
+  backdrop-filter: blur(10px);
+  padding: 32px; border-radius: 20px; max-width: 900px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.6);
+  position: relative; z-index: 2;
+}
+h1 { font-size: clamp(32px,5vw,56px); color: var(--accent);
+  text-shadow: 0 0 20px var(--accent);
+}
+#countdown { font-size: 28px; color: #ffed8c; margin-top: 10px;
+  text-shadow: 0 0 8px #ffed8c;
+}
+#fireworksCanvas { width: 100%; height: 350px; border-radius: 12px; margin-top: 20px; display: block; }
 
-    h1 { margin: 0; font-size: clamp(30px,4vw,52px); color: var(--accent); text-shadow: 0 0 20px var(--accent); }
+.btn { background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.3);
+  color: #fff; padding: 8px 16px; border-radius: 10px; cursor: pointer;
+  font-weight: bold; transition: all .2s ease;
+}
+.btn:hover { background: var(--accent); color: #222; transform: scale(1.05); }
 
-    p.lead { margin: 8px 0 18px; color: #ddd; }
-    #countdown { font-size: 28px; margin-top: 12px; font-weight: bold; letter-spacing: 1px; color: #ffed8c; text-shadow: 0 0 8px #ffed8c; }
-    .controls { display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; margin-top: 18px; }
-    .btn { background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); padding: 8px 14px; border-radius: 10px; color: #fff; cursor: pointer; font-weight: 600; transition: all .2s ease-in-out; }
-    .btn:hover { background: var(--accent); color: #222; transform: scale(1.05); }
-    #fireworksCanvas { width: 100%; height: 360px; border-radius: 12px; display: block; background: transparent; }
-    .share-btn { background: linear-gradient(90deg,#ffb86b,#ffd86b); color: #2b0a00; border: none; border-radius: 50px; padding: 10px 24px; font-weight: bold; cursor: pointer; box-shadow: 0 0 15px #ffb86b; transition: all .3s ease; }
-    .share-btn:hover { transform: scale(1.1); box-shadow: 0 0 25px #ffd86b; }
+#celebrationBanner {
+  position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%);
+  font-size: clamp(36px,6vw,72px); color: gold; text-shadow: 0 0 30px gold;
+  font-weight: bold; opacity: 0; animation: fadeInScale 3s forwards;
+  z-index: 10; pointer-events: none;
+}
+@keyframes fadeInScale {
+  0% { opacity: 0; transform: translate(-50%,-50%) scale(0.5); }
+  50% { opacity: 1; transform: translate(-50%,-50%) scale(1.1); }
+  100% { opacity: 1; transform: translate(-50%,-50%) scale(1); }
+}
 
-    .light-string { position: absolute; width: 100%; display: flex; justify-content: space-evenly; top: 0; padding-top: 15px; pointer-events: none; z-index: 1; }
-    .light { width: 15px; height: 15px; border-radius: 50%; background: gold; box-shadow: 0 0 10px gold; animation: twinkle 1.5s infinite alternate; }
-    .light:nth-child(odd){animation-delay:.5s;}
-    @keyframes twinkle { from{opacity:0.3; transform:scale(0.9);} to{opacity:1; transform:scale(1.1);} }
-
-    .diya-container { position: absolute; bottom: 10px; width: 100%; display: flex; justify-content: space-evenly; z-index: 1; }
-    .diya { position: relative; width: 40px; height: 25px; background: var(--lamp); border-radius: 20px 20px 0 0; box-shadow: 0 0 15px var(--lamp); }
-    .flame { position: absolute; top: -25px; left: 50%; transform: translateX(-50%); width: 12px; height: 25px; background: radial-gradient(ellipse at bottom, var(--flame), transparent); border-radius: 50% 50% 50% 50%; animation: flicker 0.15s infinite alternate; }
-    @keyframes flicker { from {transform:translateX(-50%) scale(1);} to {transform:translateX(-50%) scale(1.1);} }
-
-    .canvas-wrap { position: relative; margin-top: 12px; }
-    .touch-hint {
-      position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); z-index: 5; pointer-events: auto; background: rgba(0,0,0,0.35); padding: 10px 18px; border-radius: 999px; font-weight: 700; color: #fff; backdrop-filter: blur(6px); box-shadow: 0 6px 20px rgba(0,0,0,0.6); cursor: pointer; transition: transform .15s ease, opacity .3s ease; }
-    .touch-hint:active { transform: translate(-50%, -50%) scale(0.98); }
-    .touch-hint.hidden { opacity: 0; transform: translate(-50%, -50%) scale(0.9); pointer-events: none; }
-
-    @media (max-width:640px){ #fireworksCanvas{height:260px} }
+.floating-emoji {
+  position: fixed;
+  bottom: -30px;
+  font-size: 24px;
+  animation: floatUp 4s linear forwards;
+  z-index: 5;
+}
+@keyframes floatUp {
+  0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+  100% { transform: translateY(-110vh) rotate(720deg); opacity: 0; }
+}
