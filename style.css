@@ -1,60 +1,20 @@
 :root {
   --bg: radial-gradient(circle at 20% 20%, #1a1b2f, #0a0a14);
   --accent: #ffcc33;
-  --lamp: #ffcf40;
-  --flame: #ff6600;
 }
 body {
   margin: 0; font-family: system-ui, sans-serif;
   background: var(--bg); color: #fff; overflow-x: hidden; position: relative;
   transition: background 2s ease;
 }
-.wrap {
-  min-height: 100vh; display: flex; flex-direction: column;
-  align-items: center; justify-content: center; text-align: center;
-  padding: 20px;
-}
-.card {
-  background: rgba(255,255,255,0.07);
-  backdrop-filter: blur(10px);
-  padding: 32px; border-radius: 20px; max-width: 900px;
-  box-shadow: 0 0 20px rgba(0,0,0,0.6);
-  position: relative; z-index: 2;
-}
-h1 { font-size: clamp(32px,5vw,56px); color: var(--accent);
-  text-shadow: 0 0 20px var(--accent);
-}
-#countdown { font-size: 28px; color: #ffed8c; margin-top: 10px;
-  text-shadow: 0 0 8px #ffed8c;
-}
+.wrap { min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 20px; }
+.card { background: rgba(255,255,255,0.07); backdrop-filter: blur(10px); padding: 32px; border-radius: 20px; max-width: 900px; box-shadow: 0 0 20px rgba(0,0,0,0.6); position: relative; z-index: 2; }
+h1 { font-size: clamp(32px,5vw,56px); color: var(--accent); text-shadow: 0 0 20px var(--accent); }
+#countdown { font-size: 28px; color: #ffed8c; margin-top: 10px; text-shadow: 0 0 8px #ffed8c; }
 #fireworksCanvas { width: 100%; height: 350px; border-radius: 12px; margin-top: 20px; display: block; }
-
-.btn { background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.3);
-  color: #fff; padding: 8px 16px; border-radius: 10px; cursor: pointer;
-  font-weight: bold; transition: all .2s ease;
-}
+.btn { background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.3); color: #fff; padding: 8px 16px; border-radius: 10px; cursor: pointer; font-weight: bold; transition: all .2s ease; }
 .btn:hover { background: var(--accent); color: #222; transform: scale(1.05); }
-
-#celebrationBanner {
-  position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%);
-  font-size: clamp(36px,6vw,72px); color: gold; text-shadow: 0 0 30px gold;
-  font-weight: bold; opacity: 0; animation: fadeInScale 3s forwards;
-  z-index: 10; pointer-events: none;
-}
-@keyframes fadeInScale {
-  0% { opacity: 0; transform: translate(-50%,-50%) scale(0.5); }
-  50% { opacity: 1; transform: translate(-50%,-50%) scale(1.1); }
-  100% { opacity: 1; transform: translate(-50%,-50%) scale(1); }
-}
-
-.floating-emoji {
-  position: fixed;
-  bottom: -30px;
-  font-size: 24px;
-  animation: floatUp 4s linear forwards;
-  z-index: 5;
-}
-@keyframes floatUp {
-  0% { transform: translateY(0) rotate(0deg); opacity: 1; }
-  100% { transform: translateY(-110vh) rotate(720deg); opacity: 0; }
-}
+#celebrationBanner { position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: clamp(36px,6vw,72px); color: gold; text-shadow: 0 0 30px gold; font-weight: bold; opacity: 0; z-index: 10; pointer-events: none; transition: opacity 2s ease; }
+.floating-emoji { position: fixed; bottom: -30px; font-size: 24px; animation: floatUp 4s linear forwards; z-index: 5; }
+@keyframes floatUp { 0% { transform: translateY(0) rotate(0deg); opacity: 1; } 100% { transform: translateY(-110vh) rotate(720deg); opacity: 0; } }
+#musicControl { position: fixed; top: 20px; right: 20px; background: rgba(0,0,0,0.5); border: none; border-radius: 50%; width: 50px; height: 50px; display: flex; align-items: center; justify-content: center; cursor: pointer; z-index: 10; }
