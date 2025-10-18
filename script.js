@@ -9,8 +9,8 @@ let fireworks = [];
 const palette = ['#ffcc33','#ff3366','#33ff99','#66ccff','#ff9933'];
 
 /* --------- Sounds & Music (safe play) --------- */
-const crackUrl = 'boom.mp3';
-const boomUrl = 'boom.mp3';
+const crackUrl = 'crackers.mp3';
+const boomUrl = 'crackers.mp3';
 const musicUrl = 'Diwali.mp3';
 
 function makeAudio(url, volume=0.4) {
@@ -209,6 +209,7 @@ window.addEventListener("beforeunload", () => {
   if (celebrationFireworkInterval) clearInterval(celebrationFireworkInterval);
   if (floatingEmojiInterval) clearInterval(floatingEmojiInterval);
 });
+
 
 
 
