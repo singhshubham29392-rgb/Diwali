@@ -209,7 +209,8 @@ window.addEventListener("beforeunload", () => {
   if (celebrationFireworkInterval) clearInterval(celebrationFireworkInterval);
   if (floatingEmojiInterval) clearInterval(floatingEmojiInterval);
 });
-</script>
+
+
 
 
 
