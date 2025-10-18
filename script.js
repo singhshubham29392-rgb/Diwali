@@ -9,7 +9,7 @@ let palette = ['#ffcc33','#ff3366','#33ff99','#66ccff','#ff9933'];
 
 // ==== Sounds ====
 const crack = new Audio('crackers.mp3');
-const boom = new Audio('boom.mp3');
+const boom = new Audio('crackers.mp3');
 crack.volume = boom.volume = 0.5;
 
 // ==== Music ====
@@ -122,4 +122,5 @@ function startCelebration() {
     setTimeout(()=>e.remove(),4000);
   },300);
 }
+
 
