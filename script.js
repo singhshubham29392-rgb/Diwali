@@ -63,10 +63,25 @@ function launchFirework(x, y, sound="crack") {
   (sound==="boom"?boom:crack).cloneNode().play();
 }
 
-document.getElementById("launchBurst").onclick = ()=>{
-  for (let i=0;i<3;i++)
-    launchFirework(Math.random()*canvas.width,Math.random()*canvas.height/2,"boom");
+// ==== Auto Crackers Toggle ====
+let autoCrackersOn = false;
+let autoCrackersInterval = null;
+
+document.getElementById("autoCrackers").onclick = () => {
+  const btn = document.getElementById("autoCrackers");
+  if (!autoCrackersOn) {
+    autoCrackersOn = true;
+    btn.textContent = "Auto Crackers: ON";
+    autoCrackersInterval = setInterval(() => {
+      launchFirework(Math.random()*canvas.width, Math.random()*canvas.height/2, "boom");
+    }, 500); // Launch every 0.5 seconds
+  } else {
+    autoCrackersOn = false;
+    btn.textContent = "Auto Crackers: OFF";
+    clearInterval(autoCrackersInterval);
+  }
 };
+
 
 canvas.addEventListener("click", e=>{
   const rect = canvas.getBoundingClientRect();
@@ -122,5 +137,6 @@ function startCelebration() {
     setTimeout(()=>e.remove(),4000);
   },300);
 }
+
 
 
