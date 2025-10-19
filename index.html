@@ -1,50 +1,34 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>🎆 Happy Diwali Celebration 🪔</title>
-<link rel="stylesheet" href="style.css" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Diwali Celebration 🎆</title>
+<link href="style.css" rel="stylesheet">
 </head>
+
 <body>
+  <div class="lights" id="lights"></div>
 
-<!-- Top Lights -->
-<div class="top-lights">
-  <div class="bulb" style="--i:0; --color:red;"></div>
-  <div class="bulb" style="--i:1; --color:orange;"></div>
-  <div class="bulb" style="--i:2; --color:yellow;"></div>
-  <div class="bulb" style="--i:3; --color:green;"></div>
-  <div class="bulb" style="--i:4; --color:cyan;"></div>
-  <div class="bulb" style="--i:5; --color:blue;"></div>
-  <div class="bulb" style="--i:6; --color:violet;"></div>
-  <div class="bulb" style="--i:7; --color:pink;"></div>
-  <div class="bulb" style="--i:8; --color:gold;"></div>
-</div>
+  <h1>🎆 Happy Diwali 🎇</h1>
+  <p>Wishing you a joyous Diwali filled with love, light, and laughter!</p>
 
-<div class="wrap">
-  <div class="card">
-    <h1>🎇Happy Diwali 🎆</h1>
-    <p>Diwali is a celebration of light, love, and laughter. May it bring joy and happiness to your life.</p>
-    <div id="countdown">Loading...</div>
-    <canvas id="fireworksCanvas"></canvas>
-    <div style="margin-top:15px;">
-      <button class="btn" id="launchBurst">Launch Fireworks</button>
-      <button class="btn" id="launchRocket">Launch Rocket 🚀</button>
-      <button class="btn" id="autoFireworks">Auto Crackers: Off</button>
-      <button class="btn" id="toggleMusic">Play Music</button>
-      <button class="btn" id="shareBtn">Share</button>
-    </div>
+  <div>
+    <button class="btn" id="launchBurst">Launch Crackers 🎆</button>
+    <button class="btn" id="launchRocket">Launch Rocket 🚀</button>
+    <button class="btn" id="autoFireworks">Auto Crackers: Off</button>
+    <button class="btn" id="toggleMusic">Play Music 🎵</button>
+    <button class="btn" id="shareBtn">Share</button>
   </div>
-</div>
 
+  <img src="https://i.imgur.com/2qg9WYs.png" class="diya left-diya" alt="Diya">
+  <img src="https://i.imgur.com/2qg9WYs.png" class="diya right-diya" alt="Diya">
 
-<!-- Side Diyas -->
-<div class="diya left"><div class="base"></div><div class="flame"></div></div>
-<div class="diya right"><div class="base"></div><div class="flame"></div></div>
-<script src="script.js"></script>
+  <canvas id="fireworksCanvas"></canvas>
+
+<script src="script1.js"></script>
 </body>
 </html>
-
 
 
 
