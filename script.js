@@ -4,7 +4,7 @@ canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 
 const boom = new Audio("crackers.mp3");
-const whoosh = new Audio("https://cdn.pixabay.com/download/audio/2021/09/15/audio_76e08f5d17.mp3?filename=rocket-fly-2.mp3");
+const whoosh = new Audio("boom.mp3");
 const bgMusic = new Audio("song.mp3");
 bgMusic.loop = true;
 
@@ -126,6 +126,7 @@ canvas.addEventListener("click", (e) => {
   const y = e.clientY - rect.top;
   launchFirework(x, y);
 });
+
 
 
 
