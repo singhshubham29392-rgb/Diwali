@@ -210,6 +210,32 @@ window.addEventListener("beforeunload", () => {
   if (floatingEmojiInterval) clearInterval(floatingEmojiInterval);
 });
 
+// ==== Share Button ====
+document.getElementById("shareBtn").addEventListener("click", async () => {
+  const shareData = {
+    title: "🎆 Happy Diwali Celebration 🪔",
+    text: "Join me in celebrating Diwali with fireworks and fun!",
+    url: window.location.href
+  };
+  if (navigator.share) {
+    try {
+      await navigator.share(shareData);
+      console.log("Shared successfully");
+    } catch (err) {
+      console.log("Share canceled or failed", err);
+    }
+  } else {
+    try {
+      await navigator.clipboard.writeText(window.location.href);
+      alert("Link copied! 🎉 Share it with your friends.");
+    } catch {
+      prompt("Copy this link to share:", window.location.href);
+    }
+  }
+});
+
+
+
 
 
 
