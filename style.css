@@ -54,3 +54,53 @@ h1 { font-size: clamp(32px,5vw,56px); color: var(--accent); text-shadow: 0 0 20p
     transform: scale(1.1);
   }
 }
+
+/* ====== Side Diyas ====== */
+.side-diyas {
+  position: fixed;
+  top: 50%;
+  left: 0;
+  right: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 30px;
+  pointer-events: none;
+  z-index: 3;
+  transform: translateY(-50%);
+}
+
+.diya {
+  position: relative;
+  width: 50px;
+  height: 30px;
+  background: #ffcf40;
+  border-radius: 25px 25px 0 0;
+  box-shadow: 0 0 20px #ffcf40;
+  animation: glow 2s ease-in-out infinite alternate;
+}
+
+.flame {
+  position: absolute;
+  top: -35px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 15px;
+  height: 35px;
+  background: radial-gradient(ellipse at bottom, #ff6600, transparent);
+  border-radius: 50% 50% 50% 50%;
+  animation: flicker 0.2s infinite alternate;
+}
+
+@keyframes flicker {
+  from { transform: translateX(-50%) scale(1); opacity: 0.8; }
+  to { transform: translateX(-50%) scale(1.1); opacity: 1; }
+}
+
+@keyframes glow {
+  from { box-shadow: 0 0 15px #ffcf40; }
+  to { box-shadow: 0 0 30px #ffcf40; }
+}
+
+
