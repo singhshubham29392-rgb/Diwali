@@ -1,196 +1,103 @@
-:root {
-  --bg: radial-gradient(circle at 20% 20%, #1a1b2f, #0a0a14);
-  --accent: #ffcc33;
-}
-
-/* ===== Base ===== */
 body {
-  margin: 0;
-  font-family: system-ui, sans-serif;
-  background: var(--bg);
-  color: #fff;
-  overflow-x: hidden;
-  position: relative;
-}
-.wrap {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  padding: 20px;
-}
-.card {
-  background: rgba(255,255,255,0.07);
-  backdrop-filter: blur(10px);
-  padding: 32px;
-  border-radius: 20px;
-  max-width: 900px;
-  box-shadow: 0 0 20px rgba(0,0,0,0.6);
-  position: relative;
-  z-index: 2;
-}
-h1 {
-  font-size: clamp(32px,5vw,56px);
-  color: var(--accent);
-  text-shadow: 0 0 20px var(--accent);
-}
-#countdown {
-  font-size: 28px;
-  color: #ffed8c;
-  margin-top: 10px;
-  text-shadow: 0 0 8px #ffed8c;
-}
-#fireworksCanvas {
-  width: 100%;
-  height: 350px;
-  border-radius: 12px;
-  margin-top: 20px;
-  display: block;
-}
+    margin: 0;
+    overflow: hidden;
+    background: radial-gradient(circle at center, #0a0a0a, #000);
+    color: #fff;
+    font-family: "Poppins", sans-serif;
+    text-align: center;
+  }
 
-/* ===== Buttons ===== */
-.btn {
-  background: rgba(255,255,255,0.1);
-  border: 1px solid rgba(255,255,255,0.3);
-  color: #fff;
-  padding: 8px 16px;
-  border-radius: 10px;
-  cursor: pointer;
-  font-weight: bold;
-  transition: all .2s ease;
-}
-.btn:hover { background: var(--accent); color: #222; transform: scale(1.05); }
+  h1 {
+    font-size: 3em;
+    margin-top: 80px;
+    color: gold;
+    text-shadow: 0 0 25px orange, 0 0 50px yellow;
+    animation: glow 2s infinite alternate;
+  }
+  @keyframes glow {
+    from { text-shadow: 0 0 10px gold; }
+    to { text-shadow: 0 0 30px orange; }
+  }
 
-/* ===== Celebration Text ===== */
-#celebrationBanner {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  font-size: clamp(36px,6vw,72px);
-  color: gold;
-  text-shadow: 0 0 30px gold;
-  font-weight: bold;
-  opacity: 0;
-  animation: fadeInScale 3s forwards;
-  z-index: 10;
-}
-@keyframes fadeInScale {
-  0% { opacity: 0; transform: translate(-50%,-50%) scale(0.5); }
-  50% { opacity: 1; transform: translate(-50%,-50%) scale(1.1); }
-  100% { opacity: 1; transform: translate(-50%,-50%) scale(1); }
-}
+  /* ===== Buttons ===== */
+  .btn {
+    background: linear-gradient(45deg, #ff8800, #ffcc00);
+    border: none;
+    color: #222;
+    padding: 10px 20px;
+    margin: 8px;
+    border-radius: 10px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: transform 0.2s;
+  }
+  .btn:hover { transform: scale(1.1); }
 
-/* ===== Top Lights ===== */
-.top-lights {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 70px;
-  display: flex;
-  justify-content: space-around;
-  align-items: flex-start;
-  z-index: 20;
-  pointer-events: none;
-}
-.bulb {
-  width: 25px;
-  height: 25px;
-  border-radius: 50%;
-  background: red;
-  box-shadow: 0 0 15px red;
-  animation: blink 1.2s infinite;
-  animation-delay: calc(var(--i) * 0.15s);
-}
-@keyframes blink {
-  0%, 100% { opacity: 0.4; transform: scale(0.9); }
-  50% { opacity: 1; transform: scale(1.3); background: var(--color); box-shadow: 0 0 25px var(--color); }
-}
+  /* ===== Canvas ===== */
+  canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+  }
 
-/* ===== Animated Diyas ===== */
-.diya {
-  position: fixed;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 100px;
-  height: 100px;
-  z-index: 20;
-  display: flex;
-  align-items: flex-end;
-  justify-content: center;
-  animation: bounceDiya 3s ease-in-out infinite;
-}
-.diya.left { left: 20px; }
-.diya.right { right: 20px; }
-.diya .base {
-  width: 70px;
-  height: 30px;
-  background: radial-gradient(circle at top, #ffb84d, #a63c00);
-  border-radius: 50px 50px 0 0;
-  box-shadow: 0 0 25px rgba(255, 153, 0, 0.8);
-  position: relative;
-}
-.diya .flame {
-  position: absolute;
-  top: -40px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 16px;
-  height: 36px;
-  background: radial-gradient(ellipse at bottom, #ff6600 10%, transparent 70%);
-  border-radius: 50%;
-  animation: flickerFlame 0.2s infinite alternate;
-  filter: drop-shadow(0 0 12px #ff9900);
-}
-@keyframes flickerFlame {
-  0% { transform: translateX(-50%) scale(1); opacity: 0.9; }
-  100% { transform: translateX(-50%) scale(1.2) rotate(3deg); opacity: 1; }
-}
+  /* ===== Lights ===== */
+  .lights {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 30px;
+    display: flex;
+    justify-content: space-around;
+    pointer-events: none;
+    z-index: 5;
+  }
+  .light {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    animation: blink 1.5s infinite alternate;
+  }
+  @keyframes blink {
+    0%, 100% { opacity: 0.4; transform: scale(0.9); }
+    50% { opacity: 1; transform: scale(1.3); box-shadow: 0 0 25px var(--color); }
+  }
 
-@keyframes bounceDiya {
-  0%, 100% { transform: translateY(-50%) scale(1); }
-  50% { transform: translateY(calc(-50% - 10px)) scale(1.05); }
-}
+  /* ===== Diyas ===== */
+  .diya {
+    position: fixed;
+    bottom: 20px;
+    width: 80px;
+    height: 80px;
+    animation: flicker 1s infinite alternate;
+    z-index: 5;
+  }
+  .left-diya { left: 40px; }
+  .right-diya { right: 40px; }
 
-/* ===== Rockets ===== */
-.rocket {
-  position: fixed;
-  bottom: 0;
-  width: 8px;
-  height: 25px;
-  background: linear-gradient(to top, #ff0000, #ffff00);
-  border-radius: 3px;
-  left: 50%;
-  transform: translateX(-50%);
-  animation: flyUp 2.5s ease-out forwards;
-}
-@keyframes flyUp {
-  0% { bottom: 0; opacity: 1; }
-  80% { bottom: 90vh; opacity: 1; }
-  100% { bottom: 95vh; opacity: 0; }
-}
+  @keyframes flicker {
+    0% { transform: scale(1); opacity: 0.9; }
+    100% { transform: scale(1.1) rotate(2deg); opacity: 1; }
+  }
 
-/* ===== Rockets ===== */
-.rocket {
-  position: fixed;
-  bottom: 0;
-  width: 8px;
-  height: 25px;
-  background: linear-gradient(to top, #ff0000, #ffff00);
-  border-radius: 3px;
-  left: 50%;
-  transform: translateX(-50%);
-  animation: flyUp 2s ease-out forwards;
-  box-shadow: 0 0 15px #ff0000;
-}
-@keyframes flyUp {
-  0% { bottom: 0; opacity: 1; }
-  80% { bottom: 90vh; opacity: 1; }
-  100% { bottom: 95vh; opacity: 0; }
-}
+  /* ===== Rocket ===== */
+  .rocket {
+    position: fixed;
+    bottom: 0;
+    width: 8px;
+    height: 25px;
+    background: linear-gradient(to top, #ff0000, #ffff00);
+    border-radius: 3px;
+    box-shadow: 0 0 15px #ff0000;
+    animation: flyUp 2s ease-out forwards;
+  }
+  @keyframes flyUp {
+    0% { bottom: 0; opacity: 1; }
+    80% { bottom: 90vh; opacity: 1; }
+    100% { bottom: 95vh; opacity: 0; }
+  }
 
 
 
