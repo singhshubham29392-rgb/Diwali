@@ -65,27 +65,30 @@ function launchRocket(){
   rocket.className="rocket";
   rocket.style.left=Math.random()*90+5+"%";
   document.body.appendChild(rocket);
-  whoosh.cloneNode().play();
+  whoosh.cloneNode().play(); // rocket sound
+
   setTimeout(()=>{
     rocket.remove();
     launchFirework(Math.random()*canvas.width,Math.random()*canvas.height/3);
-  },2000);
+  },1800);
 }
-document.getElementById("launchRocket").onclick=()=>{ 
-  for(let i=0;i<3;i++) setTimeout(launchRocket,i*400); 
+
+document.getElementById("launchRocket").onclick=()=>{
+  for(let i=0;i<3;i++) setTimeout(launchRocket,i*400);
 };
 
-// Auto Fireworks
-let auto=false,int;
+
+// ==== Auto Fireworks ====
+let auto=false, interval;
 document.getElementById("autoFireworks").onclick=()=>{
   auto=!auto;
   const btn=document.getElementById("autoFireworks");
   if(auto){
     btn.textContent="Auto Crackers: On";
-    int=setInterval(()=>launchFirework(Math.random()*canvas.width,Math.random()*canvas.height/2),800);
-  }else{
+    interval=setInterval(()=>launchFirework(Math.random()*canvas.width,Math.random()*canvas.height/2),800);
+  } else {
     btn.textContent="Auto Crackers: Off";
-    clearInterval(int);
+    clearInterval(interval);
   }
 };
 
@@ -118,6 +121,7 @@ document.getElementById("shareBtn").onclick=async()=>{
   if(navigator.share) await navigator.share(data);
   else alert("Sharing not supported on this browser");
 };
+
 
 
 
