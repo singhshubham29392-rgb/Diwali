@@ -108,3 +108,69 @@ h1 { font-size: clamp(32px,5vw,56px); color: var(--accent); text-shadow: 0 0 20p
   50% { transform: translateY(-10px); }
   100% { transform: translateY(0); }
 }
+
+/* ====== Extra Festive Animations ====== */
+
+/* Glowing border animation for the main card */
+@keyframes borderGlow {
+  0% { box-shadow: 0 0 10px #ffcc33; border-color: #ffcc33; }
+  50% { box-shadow: 0 0 25px #ff3366; border-color: #ff3366; }
+  100% { box-shadow: 0 0 10px #33ff99; border-color: #33ff99; }
+}
+.card {
+  animation: borderGlow 4s infinite alternate;
+  border: 2px solid transparent;
+}
+
+/* Title shimmer effect */
+h1 {
+  background: linear-gradient(90deg, #ffcc33, #ff6699, #33ffcc);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 300% 100%;
+  animation: shimmer 5s infinite linear;
+}
+@keyframes shimmer {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 100% 50%; }
+}
+
+/* Floating diya glow improvement */
+.diya {
+  animation: glow 2s ease-in-out infinite alternate, floatUpDown 4s ease-in-out infinite;
+  filter: drop-shadow(0 0 20px #ffcf40);
+}
+
+/* Celebration banner sparkle */
+#celebrationBanner {
+  background: linear-gradient(90deg, gold, orange, red, yellow);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: sparkleText 3s infinite linear;
+}
+@keyframes sparkleText {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 100% 50%; }
+}
+
+/* Twinkling light bulbs animation */
+.light-bulb {
+  width: 12px;
+  height: 12px;
+  background: #ffeb3b;
+  border-radius: 50%;
+  box-shadow: 0 0 10px #ffeb3b;
+  animation: twinkle 1.5s infinite alternate;
+}
+@keyframes twinkle {
+  0% { opacity: 0.4; transform: scale(0.8); }
+  100% { opacity: 1; transform: scale(1.2); }
+}
+
+/* Floating glow particles */
+@keyframes floatingParticle {
+  from { transform: translateY(0) scale(1); opacity: 1; }
+  to { transform: translateY(-100vh) scale(0.5); opacity: 0; }
+}
+
+
