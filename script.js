@@ -251,17 +251,6 @@ setInterval(() => {
   setTimeout(() => p.remove(), 4000);
 }, 300);
 
-<!-- ✨ Twinkling Lights Row -->
-<div style="position:fixed;top:0;left:0;width:100%;display:flex;justify-content:space-around;z-index:4;padding:10px;">
-  <div class="light-bulb"></div>
-  <div class="light-bulb"></div>
-  <div class="light-bulb"></div>
-  <div class="light-bulb"></div>
-  <div class="light-bulb"></div>
-  <div class="light-bulb"></div>
-  <div class="light-bulb"></div>
-  <div class="light-bulb"></div>
-</div>
 
 
 
