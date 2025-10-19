@@ -5,7 +5,7 @@ canvas.height = window.innerHeight;
 
 const boom = new Audio("crackers.mp3");
 const whoosh = new Audio("boom.mp3");
-const bgMusic = new Audio("song.mp3");
+const bgMusic = new Audio("jethalal _happy Diwali _shorts_(MP3_160K).mp3");
 bgMusic.loop = true;
 
 window.addEventListener("resize", () => {
@@ -126,6 +126,7 @@ canvas.addEventListener("click", (e) => {
   const y = e.clientY - rect.top;
   launchFirework(x, y);
 });
+
 
 
 
