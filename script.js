@@ -234,6 +234,36 @@ document.getElementById("shareBtn").addEventListener("click", async () => {
   }
 });
 
+// ==== Floating Glow Particles ====
+setInterval(() => {
+  const p = document.createElement("div");
+  p.className = "particle";
+  p.style.position = "fixed";
+  p.style.left = Math.random() * 100 + "vw";
+  p.style.bottom = "0";
+  p.style.width = "8px";
+  p.style.height = "8px";
+  p.style.background = ["#ffcc33", "#ff3366", "#33ff99"][Math.floor(Math.random() * 3)];
+  p.style.borderRadius = "50%";
+  p.style.opacity = 0.8;
+  p.style.animation = "floatingParticle 4s linear forwards";
+  document.body.appendChild(p);
+  setTimeout(() => p.remove(), 4000);
+}, 300);
+
+<!-- ✨ Twinkling Lights Row -->
+<div style="position:fixed;top:0;left:0;width:100%;display:flex;justify-content:space-around;z-index:4;padding:10px;">
+  <div class="light-bulb"></div>
+  <div class="light-bulb"></div>
+  <div class="light-bulb"></div>
+  <div class="light-bulb"></div>
+  <div class="light-bulb"></div>
+  <div class="light-bulb"></div>
+  <div class="light-bulb"></div>
+  <div class="light-bulb"></div>
+</div>
+
+
 
 
 
