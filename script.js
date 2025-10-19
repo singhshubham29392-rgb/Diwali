@@ -69,6 +69,30 @@ canvas.addEventListener("click", e=>{
   const rect = canvas.getBoundingClientRect();
   launchFirework(e.clientX-rect.left,e.clientY-rect.top);
 });
+// ==== Rocket Launch ====
+function launchRocket() {
+  const rocket = document.createElement("div");
+  rocket.className = "rocket";
+  rocket.style.left = Math.random() * 90 + "vw";
+  document.body.appendChild(rocket);
+
+  // When rocket reaches top, explode into fireworks
+  setTimeout(() => {
+    const rect = rocket.getBoundingClientRect();
+    launchFirework(rect.left, window.innerHeight * 0.1, "boom");
+    rocket.remove();
+  }, 1800);
+}
+
+// Multiple rockets launcher
+function launchMultipleRockets() {
+  for (let i = 0; i < 5; i++) {
+    setTimeout(() => launchRocket(), i * 300);
+  }
+}
+
+document.getElementById("launchRockets").onclick = launchMultipleRockets;
+
 
 // === Auto Fireworks Toggle ===
 document.getElementById("autoFireworks").onclick = () => {
@@ -163,6 +187,7 @@ document.getElementById("shareBtn").onclick = async () => {
     alert("Link copied to clipboard!");
   }
 };
+
 
 
 
