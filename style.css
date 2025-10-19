@@ -55,7 +55,7 @@ h1 { font-size: clamp(32px,5vw,56px); color: var(--accent); text-shadow: 0 0 20p
   }
 }
 
-/* ====== Side Diyas ====== */
+/* ====== Floating Side Diyas ====== */
 .side-diyas {
   position: fixed;
   top: 50%;
@@ -78,7 +78,7 @@ h1 { font-size: clamp(32px,5vw,56px); color: var(--accent); text-shadow: 0 0 20p
   background: #ffcf40;
   border-radius: 25px 25px 0 0;
   box-shadow: 0 0 20px #ffcf40;
-  animation: glow 2s ease-in-out infinite alternate;
+  animation: glow 2s ease-in-out infinite alternate, floatUpDown 4s ease-in-out infinite;
 }
 
 .flame {
@@ -103,4 +103,8 @@ h1 { font-size: clamp(32px,5vw,56px); color: var(--accent); text-shadow: 0 0 20p
   to { box-shadow: 0 0 30px #ffcf40; }
 }
 
-
+@keyframes floatUpDown {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0); }
+}
