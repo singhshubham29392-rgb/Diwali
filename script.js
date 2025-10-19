@@ -107,25 +107,47 @@ function updateCountdown() {
 setInterval(updateCountdown,1000);
 updateCountdown();
 
-// === Celebration Mode ===
+// ==== Celebration Mode ====
 function startCelebration() {
   celebrationMode = true;
   countdown.textContent = "🎉 Happy Diwali! 🎉";
-  document.body.style.background = "linear-gradient(45deg,#ff4081,#ffeb3b,#ff9800)";
-  document.getElementById("celebrationBanner").style.opacity = 1;
-  bgMusic.play(); musicPlaying = true;
-  setInterval(()=>launchFirework(Math.random()*canvas.width,Math.random()*canvas.height/2,"boom"),400);
-  setInterval(()=>{
-    const emojiList = ["🪔","🎆","🎇","💥","✨"];
+
+  // Bright festive background
+  document.body.style.background = "linear-gradient(45deg, #ff6a00, #ee0979, #ffeb3b)";
+  document.body.style.transition = "background 2s ease-in-out";
+
+  // Show glowing banner
+  const banner = document.getElementById("celebrationBanner");
+  banner.style.opacity = 1;
+  banner.innerHTML = "🪔✨ Happy Diwali! ✨🪔";
+  banner.style.textShadow = "0 0 40px gold, 0 0 80px orange";
+
+  // Play background music
+  bgMusic.play();
+  musicPlaying = true;
+
+  // Continuous fireworks
+  setInterval(() => {
+    launchFirework(Math.random() * canvas.width, Math.random() * canvas.height / 2, "boom");
+  }, 400);
+
+  // Floating diyas and sparkles
+  setInterval(() => {
+    const emojiList = ["🪔", "🎇", "🎆", "✨", "💥"];
     const e = document.createElement("div");
     e.className = "floating-emoji";
-    e.textContent = emojiList[Math.floor(Math.random()*emojiList.length)];
-    e.style.left = Math.random()*100 + "vw";
-    e.style.fontSize = (20+Math.random()*20)+"px";
+    e.textContent = emojiList[Math.floor(Math.random() * emojiList.length)];
+    e.style.left = Math.random() * 100 + "vw";
+    e.style.fontSize = (20 + Math.random() * 25) + "px";
+    e.style.filter = "drop-shadow(0 0 10px gold)";
     document.body.appendChild(e);
-    setTimeout(()=>e.remove(),4000);
-  },300);
+    setTimeout(() => e.remove(), 4000);
+  }, 300);
+
+  // Add glowing border animation
+  document.querySelector(".card").style.boxShadow = "0 0 40px gold, 0 0 100px orange";
 }
+
 
 // === Share Button ===
 document.getElementById("shareBtn").onclick = async () => {
@@ -141,6 +163,7 @@ document.getElementById("shareBtn").onclick = async () => {
     alert("Link copied to clipboard!");
   }
 };
+
 
 
 
