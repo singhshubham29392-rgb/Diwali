@@ -153,24 +153,26 @@ h1 {
   100% { background-position: 100% 50%; }
 }
 
-/* Twinkling light bulbs animation */
+/* ====== Rainbow Twinkling Lights ====== */
 .light-bulb {
-  width: 12px;
-  height: 12px;
-  background: #ffeb3b;
+  width: 14px;
+  height: 14px;
   border-radius: 50%;
-  box-shadow: 0 0 10px #ffeb3b;
-  animation: twinkle 1.5s infinite alternate;
-}
-@keyframes twinkle {
-  0% { opacity: 0.4; transform: scale(0.8); }
-  100% { opacity: 1; transform: scale(1.2); }
+  animation: rainbowTwinkle 1.5s infinite alternate;
+  box-shadow: 0 0 10px currentColor;
 }
 
-/* Floating glow particles */
-@keyframes floatingParticle {
-  from { transform: translateY(0) scale(1); opacity: 1; }
-  to { transform: translateY(-100vh) scale(0.5); opacity: 0; }
+/* Animate both glow and color */
+@keyframes rainbowTwinkle {
+  0% { background: red; color: red; transform: scale(0.8); opacity: 0.6; }
+  20% { background: orange; color: orange; }
+  40% { background: yellow; color: yellow; }
+  60% { background: green; color: green; }
+  80% { background: blue; color: blue; }
+  100% { background: violet; color: violet; transform: scale(1.2); opacity: 1; }
 }
+
+
+
 
 
