@@ -4,45 +4,47 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <title>Happy Diwali Celebration 🎆</title>
-<link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <!-- 🌈 Swinging Rainbow Lights Row -->
-<div class="light-row">
-  <div class="light-bulb" style="animation-delay:0s;"></div>
-  <div class="light-bulb" style="animation-delay:0.3s;"></div>
-  <div class="light-bulb" style="animation-delay:0.6s;"></div>
-  <div class="light-bulb" style="animation-delay:0.9s;"></div>
-  <div class="light-bulb" style="animation-delay:1.2s;"></div>
-  <div class="light-bulb" style="animation-delay:1.5s;"></div>
-  <div class="light-bulb" style="animation-delay:1.8s;"></div>
-  <div class="light-bulb" style="animation-delay:2.1s;"></div>
+
+<!-- 🌟 Top Decorative Lights -->
+<div class="light-string">
+  <div class="light"></div><div class="light"></div><div class="light"></div>
+  <div class="light"></div><div class="light"></div><div class="light"></div>
+  <div class="light"></div><div class="light"></div><div class="light"></div>
+</div>
+
+<!-- 🪔 Side Diyas -->
+<div class="side-diyas">
+  <div class="diya"><div class="flame"></div></div>
+  <div class="diya"><div class="flame"></div></div>
 </div>
 
 <div class="wrap">
   <div class="card">
-    <h1>🎇 Happy Diwali🎆</h1>
-    <p>Diwali is a celebration of light, love, and laughter. May it bring joy and happiness to your life</p>
+    <h1>🎇 Diwali Countdown 🎆</h1>
+    <p>Get ready for the grand celebration!</p>
     <div id="countdown">Loading...</div>
-    <canvas id="fireworksCanvas" aria-label="Fireworks display"></canvas>
+    <canvas id="fireworksCanvas"></canvas>
     <div style="margin-top:15px;">
       <button class="btn" id="launchBurst">Launch Fireworks</button>
-      <button class="btn" id="autoCrackers">Auto Crackers: OFF</button>
+      <button class="btn" id="autoFireworks">Auto Fireworks: Off</button>
       <button class="btn" id="toggleMusic">Play Music</button>
       <button class="btn" id="shareBtn">Share 🎉</button>
     </div>
   </div>
 </div>
-<div id="celebrationBanner">🎆 Happy Diwali! 🪔</div>
 
-  <!-- 🪔 Side Diyas -->
-<div class="side-diyas">
-  <div class="diya"><div class="flame"></div></div>
-  <div class="diya"><div class="flame"></div></div>
+<!-- ✨ Celebration Banner with Diyas -->
+<div id="celebrationBanner">
+  <img src="https://cdn-icons-png.flaticon.com/512/2965/2965567.png" class="diya-img left-diya" alt="Diya">
+  <span>🎆 Happy Diwali! 🎇</span>
+  <img src="https://cdn-icons-png.flaticon.com/512/2965/2965567.png" class="diya-img right-diya" alt="Diya">
 </div>
-<script src="script.js"></script>
+
 </body>
 </html>
+
 
 
 
