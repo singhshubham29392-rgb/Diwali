@@ -153,7 +153,27 @@ h1 {
   100% { background-position: 100% 50%; }
 }
 
-/* ====== Rainbow Twinkling Lights ====== */
+/* ====== Swinging Rainbow Lights ====== */
+.light-row {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  z-index: 4;
+  padding: 10px;
+  pointer-events: none;
+  transform-origin: top center;
+  animation: swing 6s ease-in-out infinite alternate;
+}
+
+@keyframes swing {
+  0% { transform: rotate(-3deg); }
+  50% { transform: rotate(3deg); }
+  100% { transform: rotate(-3deg); }
+}
+
 .light-bulb {
   width: 14px;
   height: 14px;
@@ -171,6 +191,7 @@ h1 {
   80% { background: blue; color: blue; }
   100% { background: violet; color: violet; transform: scale(1.2); opacity: 1; }
 }
+
 
 
 
