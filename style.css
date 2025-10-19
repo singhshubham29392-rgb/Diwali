@@ -172,6 +172,27 @@ h1 {
   100% { bottom: 95vh; opacity: 0; }
 }
 
+/* ===== Rockets ===== */
+.rocket {
+  position: fixed;
+  bottom: 0;
+  width: 8px;
+  height: 25px;
+  background: linear-gradient(to top, #ff0000, #ffff00);
+  border-radius: 3px;
+  left: 50%;
+  transform: translateX(-50%);
+  animation: flyUp 2s ease-out forwards;
+  box-shadow: 0 0 15px #ff0000;
+}
+@keyframes flyUp {
+  0% { bottom: 0; opacity: 1; }
+  80% { bottom: 90vh; opacity: 1; }
+  100% { bottom: 95vh; opacity: 0; }
+}
+
+
+
 
 
 
