@@ -18,3 +18,39 @@ h1 { font-size: clamp(32px,5vw,56px); color: var(--accent); text-shadow: 0 0 20p
 .floating-emoji { position: fixed; bottom: -30px; font-size: 24px; animation: floatUp 4s linear forwards; z-index: 5; }
 @keyframes floatUp { 0% { transform: translateY(0) rotate(0deg); opacity: 1; } 100% { transform: translateY(-110vh) rotate(720deg); opacity: 0; } }
 #musicControl { position: fixed; top: 20px; right: 20px; background: rgba(0,0,0,0.5); border: none; border-radius: 50%; width: 50px; height: 50px; display: flex; align-items: center; justify-content: center; cursor: pointer; z-index: 10; }
+
+/* ====== Diwali Lights ====== */
+.light-string {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  padding: 12px 0;
+  pointer-events: none;
+  z-index: 5;
+}
+
+.light {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: gold;
+  box-shadow: 0 0 15px gold, 0 0 25px gold;
+  animation: twinkle 1.5s infinite alternate;
+}
+
+.light:nth-child(odd) {
+  animation-delay: 0.5s;
+}
+
+@keyframes twinkle {
+  from {
+    opacity: 0.3;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1.1);
+  }
+}
