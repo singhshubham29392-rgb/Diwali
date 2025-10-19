@@ -3,9 +3,9 @@ const ctx = canvas.getContext("2d");
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 
-const boom = new Audio("https://cdn.pixabay.com/download/audio/2022/03/15/audio_c5b09b14c6.mp3?filename=firework-boom-1.mp3");
+const boom = new Audio("crackers.mp3");
 const whoosh = new Audio("https://cdn.pixabay.com/download/audio/2021/09/15/audio_76e08f5d17.mp3?filename=rocket-fly-2.mp3");
-const bgMusic = new Audio("https://cdn.pixabay.com/download/audio/2023/06/20/audio_7c5b2f459b.mp3?filename=festive-happy-diwali-143526.mp3");
+const bgMusic = new Audio("song.mp3");
 bgMusic.loop = true;
 
 window.addEventListener("resize", () => {
@@ -126,6 +126,7 @@ canvas.addEventListener("click", (e) => {
   const y = e.clientY - rect.top;
   launchFirework(x, y);
 });
+
 
 
 
