@@ -165,6 +165,24 @@ h1 { font-size: clamp(32px,5vw,56px); color: var(--accent);
   100% { transform: translateY(-110vh) rotate(720deg); opacity: 0; }
 }
 
+.rocket {
+  position: fixed;
+  bottom: 0;
+  width: 8px;
+  height: 30px;
+  background: linear-gradient(to top, red, orange);
+  border-radius: 5px;
+  box-shadow: 0 0 10px yellow;
+  z-index: 9;
+  animation: flyUp 2s linear forwards;
+}
+
+@keyframes flyUp {
+  0% { transform: translateY(0); opacity: 1; }
+  100% { transform: translateY(-100vh); opacity: 0.8; }
+}
+
+
 
 
 
